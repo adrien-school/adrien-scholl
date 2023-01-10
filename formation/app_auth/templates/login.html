@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} page de connexion {% endblock %}
+{% block content %}
+<div class="container">
+
+  <div class="col-md-12 mt-5" >
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert alert-danger text-center" ><strong style="font-size:20px ;color:red">{{message}}</strong></div>
+    {% endfor %}
+      {% endif %}
+    <form action="" method="post">
+      {% csrf_token %}
+
+      <div class="card mb-5">
+        <div class="card-header text-center">
+          <i class="fas fa-user fa-1x"> connexion au blog</i>
+ </div>
+      
+      <div class="card-body">
+        <label for="id_username">nom utilisateur</label>
+        {{form.username}}
+        <label for="id_pwd">mot de passe</label>
+        {{form.pwd}}
+      </div>
+      <div class="card-footer" style="text-transform:capitalize">
+        <button type="submit" class="btn btn-primary d-block text-center"> se connecter</button>
+        <p style="text-align:justify;">si vous n'avez pas de compte <a href="{% url 'register' %}">creer un compte</a></p>
+      </div>
+    </div>
+
+</form>
+  </div>
+  </div>
+
+ 
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container text-center mt-3 " style="color:#097090;font-size:30px;text-transform:uppercase;">{{message}}</div>
+    <div class="container">
+    <div class="row">      
+         {% for list in articles %}
+    <div class="card col-3 ml-1" style="margin-top:12px;margin-bottom:12px;">
+       <a href=""><img src="{{list.image.url}}" 
+        class="card-img-top" alt="Fissure in Sandstone" style="height:200px;"/></a> 
+        <div class="card-body">
+         <a href=""><h5 class="card-title">{{list.title}}</h5></a>
+          <p class="card-text" style="text-transform:lowercase;">{{list.desc|truncatewords:12}}</p>
+          <p class="card-text"> pulier il ya {{list.create_at|timesince}}</p>
+          <a href="" class="btn btn-primary">EN SAVOIR PLUS</a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+
+ {% endblock %}
+ 
+ <span class="input-group-text border-0" id="search-addon">
+  <i class="fas fa-search"></i>
+</span>

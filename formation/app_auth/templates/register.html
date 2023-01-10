@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+
+    <div class="col-md-12 mt-5" >
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center" ><strong style="font-size:20px ;color:red">{{ message }}</strong></div>
+        {% endfor %}
+        {% endif %}
+    
+      <form action="" method="post">
+        {% csrf_token %}
+  
+        <div class="card mb-5">
+          <div class="card-header text-center">
+            <i class="fas fa-user-lock">creation de compte</i>
+   </div>
+        
+        <div class="card-body">
+          {{ form }}
+        </div>
+        <div class=" card-footer ">
+          <button type="submit" class="btn btn-info btn-block"> creer un compte</button>
+      
+        </div>
+      </div>
+    </div>
+  </form>
+    </div>
+
+{% endblock %}
